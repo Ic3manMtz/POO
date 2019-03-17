@@ -1,0 +1,41 @@
+Practica 3
+
+
+	Menu
+
+1.-Administrativo.
+
+2.-Cliente.
+
+3.-Salir.
+
+
+
+	Menu Administrativo
+
+1.1.-Editar producto
+	|
+	|-Cambiar precio.
+	|-Stock.
+	|-Regresar.
+
+1.2.-Dar de alta producto.
+
+1.3.-Regresar.
+
+
+	Menu Cliente
+
+2.1.-Elegir alguno de los tres carros existentes (se muestra numero de productos y el Id del carrito).
+	|
+	|-Agregar al carrito.
+	|-Quitar del carro.
+	|-Cambiar la cantidad de algun producto.
+	|-Vaciar el carro.
+	|-Checkout-----Genera un ticket( Nombre del producto 	Precio unitario 	Cantidad 	Subtotal ).
+	|-Regresar.
+
+
+CATALOGO
+
+Se inicializa con 10 productos.
