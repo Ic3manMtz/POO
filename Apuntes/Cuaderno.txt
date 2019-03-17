@@ -1,0 +1,220 @@
+-----Polimorfismo-----
+
+Es el mecanismo de seleccion y ejecucion de un metodo con base 
+al tipo de objeto en el tipo de objeto que se este manejando.
+
+
+
+-----JAVA-----
+
+Lenguaje compilado - C.
+Dependo de la arquitectura y del SO.
+
+Lenguaje interpretado - Python.
+Con forme se va leyendo se va ejecutando.
+
+Java es un lenguaje compilado e interprete
+
+
+-----Diferencias C y Java-----
+
+	*Java*
+El manejo de la memoria es automatico.
+Todo debe estar en clases.
+No hay apuntadores.
+Todas las condiciones tienen que ser estrictamente BOOLEANAS.
+Declarar variable en cualquier punto del codigo.
+Los arreglos son objetos.
+Los tipos de datos primitivos son de tamaño fijo.
+
+	*C*
+EL manejo de la memoria es semi-automatico.
+Se pueden tener elementos independientes.
+Apuntadores.
+Los arreglos son bloques de memoria consecutivos que no estan delimitados. 
+Los tipod de datos primitivos dependen de la arquitectura.
+
+
+-----Sintaxis-----
+
+						   opcional
+<tipo de acceso>--------<modificadores>-------<clase,funcion,atributo> 
+	public					final
+	private 				static
+	protected
+	package (omision)
+
+	*Clase*
+<tipo de acceso><modificador> class <nombre>{
+		*Atributos*
+	<tipo de acceso> <modificador> <tipo de dato> <nombre>;
+
+		*Metodos* "inline" (todo el codigo tiene que estar dentro de la clase)
+	<tipo de acceso> <modificadores> <tipo de retorno> <nombre> (<argumentos>){
+		
+		"En los argumentos solo hay tipos: paso por valor y paso por referencia;
+		el paso por valor se usa para los tipos primitivos y el paso por referencia
+		se aplica a objetos."
+
+	}
+}
+
+
+-------Tipos de acceso-------
+
+	*public*
+No hay ninguna restriccion, cualquiera puede acceder a los atributos o metodos con este permiso.
+
+	*private*
+Ninguna clase puede acceder lo que sea de este tipo, solamente la clase que tiene los atributos o metodos.
+
+
+	*package* (organizacion)
+Se especifica que una clase pertenece a un paquete en especifico.
+
+
+-------Constructores-------
+
+Es un método que se encarga de dar valores inciales a los objetos al momento de su creación.
+Los construntores tienen las siguientes caracteristicas:
+	-Tipo de acceso.- public.
+	-Tipo de retorno.- se omite.
+	-Su nombre debe de ser el mismo que el de la clase.
+
+Existen varios tipos de constructores dependiendo de los valores que van a inicializar:
+
+	*Por omision*
+No se le proporcionan como parametros los valores.
+
+	*Por parámetros*
+Se le dan directamente los valores al momento de la llamada como parametros.
+
+	*Copia*
+Crea una copia de algun objeto.
+
+-------Arreglos en Java-------
+
+Los arreglos en Java son Objetos. Uno de sus atributos es length dicho valor 
+es el tamaño del arreglo.
+
+	*Declarar una referencia tipo arreglo.
+
+		<tipo de dato>[] Nombre;
+
+	*Crear un arreglo.
+
+		new <tipo de dato> [tamaño];
+
+	*Valores que se asignan al crear un arreglo:
+
+	Numerico 	0
+	Boolean 	false
+	Objeto 		null
+	char 		caracter nulo
+
+	*Acceder a algún elemento usando [indice] (va de 0 a length-1)
+
+	*Declarar, crear e incicializar un arreglo en una sola instruccion.
+
+		int tv [] = {6,3,-2,40}
+
+-------Acceder a una clase ya compliada-------
+
+	*Manual. Se pone explicitamente el paquete o subpaquetes (paquete.subpaquetes.nombreClase)
+
+
+	*import. Al inicio del codigo se agrega la instruccion "import paquete.subpaquete.nombreClase"
+			Si se van a usar varias clases del mismo subpaquete se puede usar (.*).
+
+
+-------Relaciones entre clases-------
+
+
+Las relaciones existentes entre las distintas clases nos indican como se 
+comunican los objetos de esas clases entres si.
+
+Los mensajes "navegan" por las relaciones existentes entre las distintas clases.
+
+Existen tres tipos de relaciones:
+
+	-Asociación (conexión entre clases).
+	-Dependencia (Relacion de uso).
+	-Generalización/especialización (Relaciones de herencia).
+
+
+	**Asociación
+
+	Una asociación es una relación estructural que describe una 
+	conexión entre objetos.
+
+
+	+---------+           +-----------+
+	| Cliente |			  | Direccion |
+	+---------+	 vive en  +-----------+
+	|         |___________|			  |
+	+---------+			  +-----------+
+	|         |			  |			  |
+	+---------+			  +-----------+
+
+
+	Graficamente, se muestra como una linea continua 
+	que une las clases relacionadas entre si.
+
+	--Multiplicidad
+
+	La multiplcidad de una asociación determina cuantos objetos
+	de cada tipo intervienen en la relación:
+
+
+		El numero de instancias de una clase que se relaciona con UNA
+		instancia de la otra clase.
+
+	Cada asociación tiene dos multiplicidades (una para cada extremo).
+
+
+			+---------------+-------------------+
+			| Multiplicidad | Significado 		|
+			+---------------+-------------------+
+			|		1		|	    Uno 	  	|		Formato
+			|	   0..1     |	Cero o uno 		|
+			|	   N..M 	| 	Desde N hasta M |	 Minimo..Maximo
+			| 		*		|	Cero o varios 	|	
+			| 	   0..*		|	Cero o varios 	|
+			| 	   1..*		|	Uno o varios 	|
+			+---------------+-------------------+
+
+			Cuando la multiplicidad minima es cero es opcional
+			de lo contrario es obligatoria.
+
+
+	**Composición
+
+	Las partes solo existen asociadas al compuesto. (solo se accede 
+	a ellas a través del compuesto).
+
+
+			public class Ventana{
+				private int x;
+				private int y;
+				private int width;
+				private int height;
+				private Scrollbar H = null,V = null;
+				private Panel P;
+				private Cabecera C;
+
+				public Ventana(int cx, int cy, int W, int h, int s){
+					P = new Panel();
+					C = new Cabecera();
+					if (s > 0){
+						if(s == 1){
+							H = new Scrollbar();
+						}else if(s == 2){
+							V = new Scrollbar();
+						}else{
+							H = new Scrollbar();
+							V = new Scrollbar();
+						}
+					}
+				}
+			}
+
