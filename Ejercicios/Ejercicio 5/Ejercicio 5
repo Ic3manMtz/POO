@@ -1,0 +1,20 @@
+Ejercicio 5
+
+Representar los siguientes conceptos, agregando métodos (A mano).
+
+1. Fecha
+
+   getNumDiasMes()
+   esFinDeMes()
+   diaSiguiente()
+
+2. Crear una clase contador la cual permita iniciarse con un valor entero o sin
+algún valor, con lo que tomará el valor de cero. Tambien debe permitirse volver
+al valor inicial.
+
+3. Escribir una clase triangulo. La clase debe incluir los siguientes métodos que
+devuelven un valor lógico.
+
+   esEscaleno()
+   esIsosceles()
+   esEquilatero()

@@ -1,0 +1,16 @@
+Ejercicio 7
+
+Diseño y codigo del sistema de venta de boletos de cine.
+
+	+----------+ 1      20+---------+
+	|  Sala    |<*>-------| Asiento |
+	+----------+          +---------+
+		| 1					   ^ 1
+		|					   |
+		| 3..5				   | 1
+	+----------+1        1+---------+
+	| Funcion  |<---------| Boleto  |
+	+----------+          +---------+
+
+
+Codigo a mano.
